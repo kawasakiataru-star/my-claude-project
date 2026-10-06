@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>パラエストラ田無｜池田柔術男塾道場</title>
+<meta name="description" content="パラエストラ田無（池田柔術男塾道場）。西武新宿線 田無駅北口から徒歩5分のブラジリアン柔術道場。初心者・女性・キッズ歓迎、無料体験受付中。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%239b141b'/%3E%3Ctext x='20' y='29' text-anchor='middle' font-size='27' font-family='serif' fill='white'%3E塾%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Oswald:wght@500;600&display=swap">
+<style>
+/* Layout: 黒×朱の道場トーン。写真は実写のみ、見出しは明朝、数字は細身の欧文。1カラム＋セクションごとに2〜3列グリッド */
+:root {
+  color-scheme: dark;
+  --bg: #111112;
+  --bg-2: #18181a;
+  --bg-3: #202023;
+  --paper: #f3f3ef;
+  --muted: #b2b2ae;
+  --line: #333336;
+  --red: #b8242b;
+  --red-deep: #8a141a;
+  --red-text: #ef5a5f;
+  --belt-blue: #3a6fd1;
+  --belt-purple: #8253c2;
+  --c-basic: #2b3a58;
+  --c-gi: #5a1a1e;
+  --c-nogi: #3d3d42;
+  --c-kids: #24452f;
+  --c-women: #4f2a3f;
+  --c-open: #2a2a2d;
+  --font-head: "Shippori Mincho B1", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  --font-num: "Oswald", "Arial Narrow", sans-serif;
+  --gutter: clamp(16px, 5vw, 56px);
+  --max: 1200px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--bg); color: var(--paper); font-family: var(--font-body); font-size: 16px; line-height: 1.85; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 { margin: 0; line-height: 1.4; text-wrap: balance; }
+p { margin: 0; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--red-text); outline-offset: 3px; }
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.num { font-family: var(--font-num); font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+.skip { position: absolute; left: 10px; top: -80px; background: #fff; color: #111; padding: 10px; z-index: 100; }
+.skip:focus { top: 10px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Header */
+.header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(17,17,18,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 68px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; line-height: 1.3; }
+.brand-mark { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; background: var(--red-deep); color: #fff; font-family: var(--font-head); font-size: 26px; }
+.brand b { display: block; font-size: 18px; font-weight: 700; letter-spacing: .06em; }
+.brand small { display: block; font-size: 12px; color: var(--muted); letter-spacing: .1em; }
+.nav { display: flex; align-items: center; gap: 2px; }
+.nav a { text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 11px; }
+.nav a:hover { color: var(--red-text); }
+.nav .nav-cta { background: var(--red); color: #fff; font-weight: 700; padding: 9px 18px; margin-left: 10px; }
+.nav .nav-cta:hover { color: #fff; background: #cc2e35; }
+.menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--paper); padding: 8px 14px; font: inherit; font-size: 14px; cursor: pointer; }
+@media (max-width: 960px) {
+  .menu-btn { display: block; }
+  .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; background: var(--bg); padding: 4px var(--gutter) 20px; border-bottom: 1px solid var(--line); }
+  .nav.open { display: flex; }
+  .nav a { padding: 14px 2px; border-bottom: 1px solid var(--line); }
+  .nav .nav-cta { margin: 14px 0 0; text-align: center; border: 0; }
+}
+
+/* Hero */
+.hero { position: relative; background: #0b0b0c; }
+.hero-img { width: 100%; aspect-ratio: 1672 / 941; max-height: 760px; object-fit: cover; object-position: 70% center; }
+.hero-copy { position: absolute; inset: 0; display: flex; align-items: center; }
+.hero-copy .wrap { width: 100%; }
+.hero-inner { max-width: 640px; text-shadow: 0 2px 18px rgba(0,0,0,.6); }
+.hero-badge { display: inline-block; background: var(--red-deep); color: #fff; font-size: 14px; font-weight: 700; padding: 4px 14px; letter-spacing: .06em; }
+.hero h1 { font-family: var(--font-head); font-weight: 800; font-size: clamp(32px, 4.8vw, 66px); letter-spacing: .04em; margin-top: 18px; white-space: nowrap; }
+.hero-sub { font-family: var(--font-head); font-weight: 700; font-size: clamp(18px, 2.2vw, 28px); letter-spacing: .08em; margin-top: 4px; }
+.hero-lead { margin-top: 20px; font-size: 16px; color: #dededa; max-width: 30em; }
+.hero-actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 700; font-size: 16px; padding: 14px 28px; border: 2px solid transparent; cursor: pointer; font-family: inherit; text-shadow: none; }
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: #cc2e35; }
+.btn-line { border-color: rgba(255,255,255,.55); color: #fff; }
+.btn-line:hover { background: rgba(255,255,255,.08); }
+.hero-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg); }
+.hero-strip .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+.hero-strip div { padding: 22px 0 22px 24px; border-left: 1px solid var(--line); }
+.hero-strip div:first-child { border-left: 0; padding-left: 0; }
+.hero-strip dt { font-size: 13px; color: var(--muted); }
+.hero-strip dd { margin: 2px 0 0; font-family: var(--font-num); font-weight: 600; font-size: 34px; line-height: 1.1; }
+.hero-strip dd small { font-family: var(--font-body); font-size: 14px; font-weight: 500; margin-left: 4px; }
+@media (max-width: 760px) {
+  .hero-img { aspect-ratio: 4 / 3; object-position: 78% center; }
+  .hero-copy { position: static; background: var(--bg-2); }
+  .hero-copy .wrap { padding-block: 28px 32px; }
+  .hero h1 { margin-top: 14px; }
+  .hero-strip .wrap { grid-template-columns: 1fr 1fr; }
+  .hero-strip div { padding: 16px 0 16px 16px; }
+  .hero-strip div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .hero-strip div:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+
+/* Sections */
+.section { padding-block: clamp(64px, 9vw, 112px); }
+.section.alt { background: var(--bg-2); }
+.sec-label { display: flex; align-items: center; gap: 16px; font-size: 13px; font-weight: 700; letter-spacing: .18em; margin-bottom: 20px; }
+.sec-label span { font-family: var(--font-num); color: var(--red-text); border-right: 1px solid #555; padding-right: 16px; letter-spacing: .06em; }
+.sec-title { font-family: var(--font-head); font-weight: 800; font-size: clamp(30px, 4vw, 48px); letter-spacing: .05em; }
+.sec-desc { margin-top: 14px; color: var(--muted); max-width: 44em; }
+.sec-head { margin-bottom: 44px; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.about-grid .lead { font-size: clamp(20px, 2.2vw, 26px); font-weight: 700; line-height: 1.7; margin-bottom: 20px; }
+.about-grid .copy p + p { margin-top: 16px; }
+.about-grid .copy p:not(.lead) { color: #cfcfcb; }
+.points { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.points li { display: grid; grid-template-columns: 96px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.points .big { font-family: var(--font-num); font-weight: 600; font-size: 40px; line-height: 1; color: var(--red-text); }
+.points .big small { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--muted); margin-left: 2px; }
+.points h3 { font-size: 17px; margin-bottom: 4px; }
+.points p { font-size: 14px; color: var(--muted); }
+@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+/* Classes */
+.classes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.class-card { background: var(--bg-3); border-top: 3px solid var(--c); padding: 24px 24px 20px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.class-card header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.class-card h3 { font-size: 19px; }
+.class-card .en { font-family: var(--font-num); font-size: 13px; letter-spacing: .12em; color: var(--muted); white-space: nowrap; }
+.class-card p { font-size: 15px; color: #cfcfcb; }
+.class-meta { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13px; color: var(--muted); }
+.class-meta b { color: var(--paper); }
+.k-basic { --c: #5d84d6; } .k-gi { --c: var(--red); } .k-nogi { --c: #9a9aa2; } .k-kids { --c: #4fae6e; } .k-women { --c: #c9679b; } .k-open { --c: #6b6b70; }
+@media (max-width: 960px) { .classes { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .classes { grid-template-columns: 1fr; } }
+
+/* Schedule */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); }
+.schedule { width: 100%; min-width: 820px; border-collapse: collapse; font-size: 14px; table-layout: fixed; }
+.schedule th, .schedule td { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 10px; vertical-align: top; text-align: left; }
+.schedule th:last-child, .schedule td:last-child { border-right: 0; }
+.schedule tbody tr:last-child > * { border-bottom: 0; }
+.schedule thead th { background: var(--red-deep); color: #fff; text-align: center; font-weight: 700; padding: 12px 6px; }
+.schedule thead th:first-child { width: 84px; background: #2a2a2d; }
+.schedule thead .sat { background: #2b3a58; }
+.schedule thead .sun { background: #6a1d22; }
+.schedule tbody th { font-size: 13px; color: var(--muted); font-weight: 500; white-space: nowrap; }
+.schedule td { background: var(--bg); }
+.slot { display: block; padding: 7px 9px; line-height: 1.45; border-left: 3px solid var(--c); background: var(--bg-3); }
+.slot + .slot { margin-top: 6px; }
+.slot b { display: block; font-size: 13px; }
+.slot span { font-family: var(--font-num); font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.slot.ikeda b::after { content: "塾長"; margin-left: 6px; font-size: 11px; background: var(--red); color: #fff; padding: 0 6px; vertical-align: 1px; }
+.legend { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 12px; height: 12px; background: var(--c); margin-right: 6px; vertical-align: -1px; }
+.sched-notes { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.sched-notes div { padding: 16px 20px 16px 0; border-bottom: 1px solid var(--line); }
+.sched-notes dt { font-size: 13px; color: var(--muted); }
+.sched-notes dd { margin: 0; font-weight: 700; }
+.day-list { display: none; }
+.day-list section { border-top: 1px solid var(--line); padding: 14px 0; display: grid; grid-template-columns: 48px 1fr; gap: 12px; }
+.day-list h3 { font-family: var(--font-head); font-size: 22px; line-height: 1.3; }
+.day-list .sat-h { color: #7d9be0; } .day-list .sun-h { color: var(--red-text); }
+.day-list .slots { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.day-list .slot + .slot { margin-top: 0; }
+@media (max-width: 860px) { .sched-notes { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .table-scroll { display: none; } .day-list { display: block; border-bottom: 1px solid var(--line); } }
+
+/* Fees */
+.campaign { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; background: var(--red-deep); padding: 22px 28px; margin-bottom: 32px; }
+.campaign p { font-weight: 700; font-size: 18px; }
+.campaign small { display: block; font-weight: 400; font-size: 13px; opacity: .85; }
+.campaign .num { font-size: 40px; line-height: 1; }
+.fee-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: start; }
+.fee-table { width: 100%; border-collapse: collapse; border: 1px solid var(--line); background: var(--bg-3); }
+.fee-table caption { text-align: left; font-weight: 700; font-size: 17px; padding-bottom: 10px; }
+.fee-table th, .fee-table td { padding: 16px 20px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+.fee-table th { font-weight: 700; }
+.fee-table th small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; }
+.fee-table td { text-align: right; white-space: nowrap; }
+.fee-table td .num { font-size: 28px; font-weight: 600; }
+.fee-table td small { color: var(--muted); font-size: 13px; margin-left: 2px; }
+.fee-table .pop th::after { content: "おすすめ"; margin-left: 8px; font-size: 11px; background: var(--red); color: #fff; padding: 1px 8px; vertical-align: 2px; }
+.fee-side { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.fee-box { border: 1px solid var(--line); background: var(--bg-3); padding: 20px 22px; }
+.fee-box h3 { font-size: 16px; margin-bottom: 10px; }
+.fee-box dl { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; font-size: 15px; }
+.fee-box dd { margin: 0; text-align: right; font-weight: 700; }
+.fee-box dd .num { font-size: 20px; }
+.fee-note { margin-top: 18px; font-size: 13px; color: var(--muted); }
+@media (max-width: 860px) { .fee-grid { grid-template-columns: 1fr; } .fee-table th, .fee-table td { padding: 14px; } }
+
+/* Instructor */
+.inst-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: center; }
+.portrait { position: relative; }
+.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; }
+.portrait figcaption { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(138,20,26,.92); text-align: center; padding: 10px; font-family: var(--font-head); letter-spacing: .16em; }
+.inst-copy .eyebrow { color: var(--red-text); font-size: 14px; font-weight: 700; letter-spacing: .14em; }
+.inst-copy h2 { font-family: var(--font-head); font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: .06em; margin: 6px 0 18px; }
+.inst-copy .quote { font-family: var(--font-head); font-size: clamp(20px, 2.2vw, 26px); font-weight: 700; line-height: 1.7; margin-bottom: 16px; }
+.inst-copy > p:not(.eyebrow):not(.quote) { color: #cfcfcb; }
+.profile { margin: 24px 0 0; border-top: 1px solid var(--line); }
+.profile div { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.profile dt { font-size: 14px; color: var(--muted); }
+.profile dd { margin: 0; font-weight: 500; }
+@media (max-width: 860px) { .inst-grid { grid-template-columns: 1fr; gap: 32px; } .portrait { max-width: 440px; } .profile div { grid-template-columns: 100px 1fr; } }
+
+/* Trial */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: step; }
+.steps li { counter-increment: step; min-width: 0; }
+.steps li::before { content: "STEP " counter(step, decimal-leading-zero); display: block; font-family: var(--font-num); font-weight: 600; letter-spacing: .14em; color: var(--red-text); padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2px solid var(--paper); }
+.steps h3 { font-size: 17px; margin-bottom: 6px; }
+.steps p { font-size: 14px; color: var(--muted); }
+.bring { margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.bring > div { border: 1px solid var(--line); padding: 22px 24px; min-width: 0; }
+.bring h3 { font-size: 16px; margin-bottom: 8px; }
+.bring ul { margin: 0; padding-left: 1.1em; color: #cfcfcb; font-size: 15px; }
+@media (max-width: 860px) { .steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .steps, .bring { grid-template-columns: 1fr; } }
+
+/* Gallery */
+.gallery { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: 14px; }
+.gallery figure { margin: 0; position: relative; min-width: 0; }
+.gallery img { width: 100%; height: 100%; object-fit: cover; }
+.gallery .g-main { grid-row: span 2; }
+.gallery .g-main img { aspect-ratio: 4 / 3; }
+.gallery .g-sub img { aspect-ratio: 4 / 3; }
+.gallery .g-wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.gallery .g-wide img { aspect-ratio: 4 / 3; }
+.gallery figcaption { position: absolute; left: 0; bottom: 0; background: rgba(0,0,0,.66); font-size: 13px; padding: 4px 12px; }
+.gallery .g-sub img.bb { object-position: center 35%; }
+@media (max-width: 760px) { .gallery { grid-template-columns: 1fr; } .gallery .g-main { grid-row: auto; } .gallery .g-wide { grid-template-columns: 1fr; } }
+
+/* FAQ */
+.faq { border-top: 1px solid var(--line); max-width: 880px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 44px 20px 0; font-weight: 700; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before { content: "Q."; font-family: var(--font-num); color: var(--red-text); margin-right: 12px; }
+.faq summary::after { content: "+"; position: absolute; right: 8px; top: 15px; font-size: 24px; font-weight: 400; color: var(--muted); }
+.faq details[open] summary::after { content: "−"; }
+.faq .ans { padding: 0 0 22px 32px; color: #cfcfcb; font-size: 15px; }
+
+/* Access */
+.access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.info { margin: 0; border-top: 1px solid var(--line); }
+.info div { display: grid; grid-template-columns: 120px 1fr; gap: 12px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.info dt { font-size: 14px; color: var(--muted); }
+.info dd { margin: 0; font-weight: 500; min-width: 0; }
+.route-card { background: var(--bg-3); padding: 26px 28px; }
+.route-card h3 { font-size: 17px; margin-bottom: 16px; }
+.route { list-style: none; margin: 0; padding: 0; }
+.route li { position: relative; padding: 0 0 18px 30px; }
+.route li::before { content: ""; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; border-radius: 50%; border: 3px solid var(--paper); background: var(--bg-3); }
+.route li:not(:last-child)::after { content: ""; position: absolute; left: 6px; top: 24px; bottom: 2px; width: 2px; background: #555; }
+.route li:last-child { padding-bottom: 0; }
+.route li:last-child::before { background: var(--red); border-color: var(--red); }
+.route .min { display: block; font-family: var(--font-num); font-size: 14px; color: var(--muted); }
+.route-card .map-link { display: inline-block; margin-top: 20px; font-weight: 700; border-bottom: 2px solid var(--red); text-decoration: none; padding-bottom: 2px; }
+@media (max-width: 860px) { .access-grid { grid-template-columns: 1fr; gap: 32px; } .info div { grid-template-columns: 100px 1fr; } }
+
+/* Contact */
+.contact { background: #0b0b0c; border-top: 3px solid var(--red-deep); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; }
+.contact-info { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.contact-info small { display: block; font-size: 13px; color: var(--muted); }
+.contact-info .tel { font-family: var(--font-num); font-size: 40px; font-weight: 600; letter-spacing: .04em; line-height: 1.15; user-select: all; }
+.contact-info .val { font-weight: 700; font-size: 17px; word-break: break-all; }
+.form { background: var(--bg-2); border: 1px solid var(--line); padding: clamp(20px, 3vw, 32px); display: grid; grid-template-columns: 1fr 1fr; gap: 18px; min-width: 0; }
+.form .full { grid-column: 1 / -1; }
+.form label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.form .req { color: var(--red-text); font-size: 12px; margin-left: 6px; }
+.form input, .form select, .form textarea { width: 100%; font: inherit; font-size: 16px; padding: 12px 14px; background: var(--bg); color: var(--paper); border: 1px solid var(--line); border-radius: 0; }
+.form textarea { min-height: 110px; resize: vertical; }
+.form .btn { width: 100%; }
+.form-msg { grid-column: 1 / -1; font-size: 14px; padding: 12px 14px; background: var(--bg-3); border-left: 3px solid var(--red); }
+@media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 520px) { .form { grid-template-columns: 1fr; } }
+
+/* Footer */
+.footer { background: #09090a; border-top: 1px solid var(--line); }
+.footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px 32px; }
+.footer nav { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; }
+.footer nav a { text-decoration: none; color: var(--muted); }
+.footer nav a:hover { color: var(--paper); }
+.footer .copy { width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 12px; color: #8a8a86; padding-top: 18px; border-top: 1px solid var(--line); }
+
+.mobile-cta { display: none; }
+@media (max-width: 620px) {
+  .mobile-cta { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(9,9,10,.96); border-top: 1px solid var(--line); }
+  .mobile-cta .btn { width: 100%; padding: 12px; }
+  body { padding-bottom: 70px; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">塾</span><span><b>パラエストラ田無</b><small>池田柔術男塾道場</small></span></a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav">メニュー</button>
+    <nav class="nav" id="nav" aria-label="メインメニュー">
+      <a href="#about">道場について</a>
+      <a href="#classes">クラス</a>
+      <a href="#schedule">スケジュール</a>
+      <a href="#fees">料金</a>
+      <a href="#instructor">塾長紹介</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta">無料体験</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="home" aria-labelledby="hero-title">
+  <img class="hero-img" src="images/hero.jpg" width="1672" height="941" alt="黒い道着を着た池田塾長">
+  <div class="hero-copy">
+    <div class="wrap">
+      <div class="hero-inner">
+        <p class="hero-badge">2027年4月 田無駅北口にオープン</p>
+        <h1 id="hero-title">パラエストラ田無</h1>
+        <p class="hero-sub">池田柔術男塾道場</p>
+        <p class="hero-lead">西武新宿線 田無駅から徒歩5分。白帯から黒帯まで、真剣に、そして仲間とともに柔術を学ぶ道場です。</p>
+        <div class="hero-actions">
+          <a class="btn btn-red" href="#contact">無料体験を予約する</a>
+          <a class="btn btn-line" href="#schedule">スケジュールを見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hero-strip">
+  <dl class="wrap">
+    <div><dt>週間クラス数</dt><dd>18<small>クラス</small></dd></div>
+    <div><dt>田無駅北口から</dt><dd>5<small>分</small></dd></div>
+    <div><dt>マット面積</dt><dd>80<small>㎡</small></dd></div>
+    <div><dt>体験・見学</dt><dd>0<small>円</small></dd></div>
+  </dl>
+</div>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>ABOUT THE DOJO</p>
+    <div class="about-grid">
+      <div class="copy">
+        <h2 class="sec-title">柔術で、<br>自分を磨く。</h2>
+        <p class="sec-desc" style="margin-bottom:28px">ブラジリアン柔術は、打撃を使わずに相手をコントロールする「寝技中心の格闘技」です。力や体格より技術がものを言うため、年齢や運動経験に関係なく上達できます。</p>
+        <p class="lead">基本を大事に、<br>長く続けられる道場へ。</p>
+        <p>パラエストラ田無は、池田塾長が田無駅周辺に開く柔術道場です。初めての方には専用のベーシッククラスを用意し、受け身や基本姿勢から順番に指導します。</p>
+        <p>競技で勝ちたい方、健康のために体を動かしたい方、仕事帰りに汗を流したい方。目的はそれぞれでも、同じ畳の上で真剣に練習する仲間がいます。</p>
+      </div>
+      <ul class="points">
+        <li><p class="big num">60<small>分</small></p><div><h3>初心者専用クラス</h3><p>スパーリングなし。12週間で基本技術がひと通り身につくカリキュラムです。</p></div></li>
+        <li><p class="big num">2<small>部制</small></p><div><h3>仕事帰りに通える平日夜</h3><p>19:00と20:15の2部制。遅い時間でも参加しやすい時間割です。</p></div></li>
+        <li><p class="big num">4<small>歳〜</small></p><div><h3>キッズ・女性クラスあり</h3><p>年齢別のキッズクラスと女性限定クラスで、家族で通う方も安心です。</p></div></li>
+        <li><p class="big num">550<small>円</small></p><div><h3>手ぶらで通える</h3><p>レンタル道着あり。シャワー・更衣室・ロッカーを完備しています。</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="classes">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-label"><span>02</span>CLASSES</p>
+      <h2 class="sec-title">クラス紹介</h2>
+      <p class="sec-desc">目的とレベルに合わせて6種類のクラスがあります。どのクラスも最初の15分はウォームアップと技術解説です。</p>
+    </div>
+    <div class="classes">
+      <article class="class-card k-basic">
+        <header><h3>ベーシック</h3><span class="en">BASIC</span></header>
+        <p>入会3か月以内の方、運動に自信がない方向け。受け身、エビ、基本ポジションを順番に学びます。スパーリングはありません。</p>
+        <div class="class-meta"><span>時間 <b>60分</b></span><span>対象 <b>白帯</b></span><span>服装 <b>道着</b></span></div>
+      </article>
+      <article class="class-card k-gi">
+        <header><h3>柔術（道着）</h3><span class="en">GI</span></header>
+        <p>道着を着て行うメインクラス。テクニック30分、ドリル15分、スパーリング30分の構成です。水曜夜は池田塾長が担当します。</p>
+        <div class="class-meta"><span>時間 <b>90分</b></span><span>対象 <b>全帯</b></span><span>服装 <b>道着</b></span></div>
+      </article>
+      <article class="class-card k-nogi">
+        <header><h3>ノーギ</h3><span class="en">NO-GI</span></header>
+        <p>ラッシュガードとスパッツで行うグラップリング。組み際の攻防や足関節など、道着なしならではの技術を扱います。</p>
+        <div class="class-meta"><span>時間 <b>75分</b></span><span>対象 <b>全帯</b></span><span>服装 <b>ラッシュガード</b></span></div>
+      </article>
+      <article class="class-card k-women">
+        <header><h3>レディース</h3><span class="en">WOMEN</span></header>
+        <p>女性限定のクラスです。体格差を気にせず、基本から寝技の楽しさを体験できます。運動不足解消や護身目的の方にも。</p>
+        <div class="class-meta"><span>時間 <b>60分</b></span><span>対象 <b>女性</b></span><span>服装 <b>道着（レンタル可）</b></span></div>
+      </article>
+      <article class="class-card k-kids">
+        <header><h3>キッズ</h3><span class="en">KIDS</span></header>
+        <p>4〜6歳と7〜12歳の2クラス制。礼儀、受け身、体幹づくりをゲーム形式で学びます。保護者の見学も自由です。</p>
+        <div class="class-meta"><span>時間 <b>50分</b></span><span>対象 <b>4〜12歳</b></span><span>服装 <b>道着</b></span></div>
+      </article>
+      <article class="class-card k-open">
+        <header><h3>オープンマット</h3><span class="en">OPEN MAT</span></header>
+        <p>指導なしの自由練習の時間です。技の復習や、大会前のスパーリングに使えます。他道場からの出稽古も歓迎します。</p>
+        <div class="class-meta"><span>時間 <b>120分</b></span><span>対象 <b>青帯以上推奨</b></span><span>服装 <b>自由</b></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="schedule">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-label"><span>03</span>SCHEDULE</p>
+      <h2 class="sec-title">週間スケジュール</h2>
+      <p class="sec-desc">会員の方は、会員種別の範囲内でどのクラスにも参加できます。予約は不要です。</p>
+    </div>
+        <div class="table-scroll" role="region" aria-label="週間スケジュール" tabindex="0">
+      <table class="schedule">
+        <thead>
+          <tr><th scope="col">時間帯</th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col" class="sat">土</th><th scope="col" class="sun">日</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">午前</th>
+            <td></td>
+            <td><span class="slot k-gi"><b>柔術</b><span>10:30–12:00</span></span></td>
+            <td></td>
+            <td><span class="slot k-gi"><b>柔術</b><span>10:30–12:00</span></span></td>
+            <td></td>
+            <td><span class="slot k-kids"><b>キッズ 4〜6歳</b><span>10:00–10:50</span></span><span class="slot k-kids"><b>キッズ 7〜12歳</b><span>11:00–11:50</span></span></td>
+            <td><span class="slot k-basic"><b>ベーシック</b><span>10:00–11:00</span></span><span class="slot k-gi"><b>柔術</b><span>11:00–12:30</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">午後</th>
+            <td></td>
+            <td><span class="slot k-kids"><b>キッズ 7〜12歳</b><span>17:30–18:20</span></span></td>
+            <td></td>
+            <td><span class="slot k-kids"><b>キッズ 4〜6歳</b><span>17:30–18:20</span></span></td>
+            <td></td>
+            <td><span class="slot k-women"><b>レディース</b><span>13:00–14:00</span></span><span class="slot k-nogi"><b>ノーギ</b><span>14:15–15:30</span></span></td>
+            <td><span class="slot k-open"><b>オープンマット</b><span>13:00–15:00</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">夜 1部</th>
+            <td><span class="slot k-basic"><b>ベーシック</b><span>19:00–20:00</span></span></td>
+            <td><span class="slot k-basic"><b>ベーシック</b><span>19:00–20:00</span></span></td>
+            <td><span class="slot k-basic"><b>ベーシック</b><span>19:00–20:00</span></span></td>
+            <td><span class="slot k-women"><b>レディース</b><span>19:00–20:00</span></span></td>
+            <td><span class="slot k-basic"><b>ベーシック</b><span>19:00–20:00</span></span></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">夜 2部</th>
+            <td><span class="slot k-gi"><b>柔術</b><span>20:15–21:45</span></span></td>
+            <td><span class="slot k-nogi"><b>ノーギ</b><span>20:15–21:30</span></span></td>
+            <td><span class="slot k-gi ikeda"><b>柔術</b><span>20:15–21:45</span></span></td>
+            <td><span class="slot k-gi"><b>柔術</b><span>20:15–21:45</span></span></td>
+            <td><span class="slot k-open"><b>オープンマット</b><span>20:15–22:00</span></span></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="day-list" id="day-list"></div>
+    <div class="legend">
+      <span class="k-basic">ベーシック（初心者）</span>
+      <span class="k-gi">柔術（道着）</span>
+      <span class="k-nogi">ノーギ</span>
+      <span class="k-women">レディース</span>
+      <span class="k-kids">キッズ</span>
+      <span class="k-open">オープンマット</span>
+    </div>
+    <dl class="sched-notes">
+      <div><dt>休館日</dt><dd>なし（年末年始・お盆を除く）</dd></div>
+      <div><dt>祝日の練習</dt><dd>日曜日の時間割で開講</dd></div>
+      <div><dt>受付時間</dt><dd>各クラス開始の30分前から</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section alt" id="fees">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-label"><span>04</span>MEMBERSHIP</p>
+      <h2 class="sec-title">入会・料金</h2>
+      <p class="sec-desc">表示はすべて税込です。月の途中に入会した場合、初月の会費は日割りで計算します。</p>
+    </div>
+    <div class="campaign">
+      <p>オープン記念キャンペーン<small>2027年6月末までのご入会で、先着30名様</small></p>
+      <p>入会金 <span class="num">0</span> 円</p>
+    </div>
+    <div class="fee-grid">
+      <table class="fee-table">
+        <caption>月会費</caption>
+        <tbody>
+          <tr class="pop"><th scope="row">フル会員<small>全クラス参加し放題</small></th><td><span class="num">13,200</span><small>円</small></td></tr>
+          <tr><th scope="row">週2会員<small>週2回まで・全クラス対象</small></th><td><span class="num">9,900</span><small>円</small></td></tr>
+          <tr><th scope="row">デイタイム会員<small>平日18時まで・土日祝は全クラス</small></th><td><span class="num">8,800</span><small>円</small></td></tr>
+          <tr><th scope="row">レディース会員<small>女性限定・全クラス参加可</small></th><td><span class="num">8,800</span><small>円</small></td></tr>
+          <tr><th scope="row">学生会員<small>中学生〜大学生・専門学生</small></th><td><span class="num">8,800</span><small>円</small></td></tr>
+          <tr><th scope="row">キッズ会員<small>4〜12歳・週2回まで</small></th><td><span class="num">7,700</span><small>円</small></td></tr>
+        </tbody>
+      </table>
+      <div class="fee-side">
+        <div class="fee-box">
+          <h3>入会時の費用</h3>
+          <dl>
+            <dt>入会金</dt><dd><span class="num">11,000</span>円</dd>
+            <dt>スポーツ保険（年額）</dt><dd><span class="num">1,850</span>円</dd>
+            <dt>道着（希望者のみ）</dt><dd><span class="num">16,500</span>円〜</dd>
+          </dl>
+        </div>
+        <div class="fee-box">
+          <h3>都度利用</h3>
+          <dl>
+            <dt>体験・見学</dt><dd>無料</dd>
+            <dt>ビジター（1回）</dt><dd><span class="num">2,200</span>円</dd>
+            <dt>オープンマット（1回）</dt><dd><span class="num">1,100</span>円</dd>
+            <dt>レンタル道着</dt><dd><span class="num">550</span>円</dd>
+          </dl>
+        </div>
+        <div class="fee-box">
+          <h3>入会時に必要なもの</h3>
+          <dl>
+            <dt>本人確認書類</dt><dd>免許証など</dd>
+            <dt>お支払い方法</dt><dd>口座振替</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <p class="fee-note">家族割：2人目以降の月会費を1,100円割引。休会制度：月額1,100円で最長6か月。パラエストラ系列道場の会員はビジター料金1,100円です。</p>
+  </div>
+</section>
+
+<section class="section" id="instructor">
+  <div class="wrap">
+    <p class="sec-label"><span>05</span>HEAD INSTRUCTOR</p>
+    <div class="inst-grid">
+      <figure class="portrait" style="margin:0">
+        <img src="images/portrait.jpg" width="880" height="941" loading="lazy" alt="池田塾長のポートレート">
+        <figcaption>池田柔術男塾道場</figcaption>
+      </figure>
+      <div class="inst-copy">
+        <p class="eyebrow">塾長紹介</p>
+        <h2>池田 塾長</h2>
+        <p class="quote">真剣に。<br>そして、ともに。</p>
+        <p>押忍の挨拶と基本の反復を大切にする指導がモットー。毎週水曜の夜クラスは「水曜池田柔術」として仲間に親しまれてきました。初心者が最初につまずくポイントを知っているからこそ、一つひとつ丁寧に伝えます。</p>
+        <dl class="profile">
+          <div><dt>帯</dt><dd>ブラジリアン柔術 黒帯</dd></div>
+          <div><dt>柔術歴</dt><dd>15年</dd></div>
+          <div><dt>担当クラス</dt><dd>柔術（水曜夜）、ベーシック</dd></div>
+          <div><dt>得意技</dt><dd>スイープ、パスガード</dd></div>
+          <div><dt>ひとこと</dt><dd>基本が大事。今日もいい練習をしましょう。</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-label"><span>06</span>JIU-JITSU &amp; FRIENDS</p>
+      <h2 class="sec-title">畳の上で、つながる。</h2>
+      <p class="sec-desc">真剣な稽古の先にある、仲間との時間。これまでの交流の写真です（新道場の施設写真ではありません）。</p>
+    </div>
+    <div class="gallery">
+      <figure class="g-main"><img src="images/g1.jpg" width="1280" height="960" loading="lazy" alt="道着姿の仲間たちとの集合写真"><figcaption>柔術でつながる仲間たち</figcaption></figure>
+      <figure class="g-sub"><img class="bb" src="images/blackbelt.jpg" width="900" height="1200" loading="lazy" alt="黒帯を手にした池田塾長と仲間"><figcaption>帯の授与</figcaption></figure>
+      <figure class="g-sub"><img src="images/g2.jpg" width="1280" height="960" loading="lazy" alt="ケージの中でお祝いをする仲間たち"><figcaption>稽古のあとのひととき</figcaption></figure>
+      <div class="g-wide">
+        <figure><img src="images/g3.jpg" width="1280" height="960" loading="lazy" alt="さまざまな帯の仲間が並ぶ集合写真"><figcaption>白帯から黒帯まで</figcaption></figure>
+        <div class="route-card" style="display:flex;flex-direction:column;justify-content:center">
+          <p class="eyebrow" style="color:var(--red-text);font-size:14px;font-weight:700;letter-spacing:.14em">FIRST VISIT</p>
+          <h3 style="font-family:var(--font-head);font-size:26px;margin:8px 0 12px">まずは見学から。</h3>
+          <p style="color:#cfcfcb">道場の雰囲気は、来て見るのがいちばんです。見学は予約なしでも大丈夫です。</p>
+          <a class="map-link" href="#trial">体験の流れを見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="trial">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-label"><span>07</span>FREE TRIAL</p>
+      <h2 class="sec-title">無料体験の流れ</h2>
+      <p class="sec-desc">所要時間はおよそ90分です。体験は1人1回まで無料です。</p>
+    </div>
+    <ol class="steps">
+      <li><h3>フォーム・電話で予約</h3><p>希望のクラスと日時をお知らせください。前日までに確認のご連絡をします。</p></li>
+      <li><h3>受付・着替え</h3><p>開始15分前にお越しください。同意書に記入後、道着を無料でお貸しします。</p></li>
+      <li><h3>体験クラス</h3><p>指導者がついて基本動作をお伝えします。体験ではスパーリングを行いません。</p></li>
+      <li><h3>説明・ご相談</h3><p>料金や通い方のご相談をお受けします。入会はご自宅で検討してからでも構いません。</p></li>
+    </ol>
+    <div class="bring">
+      <div><h3>持ち物</h3><ul><li>Tシャツ・ハーフパンツなど動きやすい服装</li><li>タオル、飲み物</li><li>ラッシュガードがあれば道着の下に着用</li></ul></div>
+      <div><h3>お願い</h3><ul><li>手足の爪は短く切ってお越しください</li><li>アクセサリー類は外していただきます</li><li>持病やケガがある方は事前にお知らせください</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-label"><span>08</span>FAQ</p>
+      <h2 class="sec-title">よくある質問</h2>
+    </div>
+    <div class="faq">
+      <details><summary>運動経験がなくても大丈夫ですか？</summary><p class="ans">大丈夫です。最初の3か月はベーシッククラスで受け身や基本動作を身につけてから、通常クラスへ進んでいただきます。</p></details>
+      <details><summary>40代・50代からでも始められますか？</summary><p class="ans">はい。打撃がなく、自分のペースで力加減を調整できるため、大人になってから始める方が多い競技です。体力に合わせて練習量を相談できます。</p></details>
+      <details><summary>ケガが心配です。</summary><p class="ans">技が極まりそうなときは相手を2回叩く「タップ」で降参を伝え、相手はすぐに力を緩めます。入会後1か月は、指導者がスパーリングの相手を選びます。</p></details>
+      <details><summary>週に何回通えば上達しますか？</summary><p class="ans">週2回でも着実に上達します。半年続けると、多くの方が基本的なポジションの攻防を理解できるようになります。</p></details>
+      <details><summary>道着は買う必要がありますか？</summary><p class="ans">入会後1か月はレンタル道着（1回550円）を使えます。購入する場合は、サイズ選びもお手伝いします。</p></details>
+      <details><summary>駐車場はありますか？</summary><p class="ans">専用駐車場はありません。近隣のコインパーキングをご利用ください。駐輪スペースはあります。</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="access">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-label"><span>09</span>ACCESS</p>
+      <h2 class="sec-title">道場の場所</h2>
+    </div>
+    <div class="access-grid">
+      <dl class="info">
+        <div><dt>道場名</dt><dd>パラエストラ田無（池田柔術男塾道場）</dd></div>
+        <div><dt>住所</dt><dd>〒188-0011<br>東京都西東京市田無町〇-〇-〇 〇〇ビル 3階</dd></div>
+        <div><dt>最寄り駅</dt><dd>西武新宿線 田無駅 北口から徒歩5分</dd></div>
+        <div><dt>設備</dt><dd>マット80㎡、シャワー2基、男女別更衣室、ロッカー</dd></div>
+        <div><dt>駐輪・駐車</dt><dd>駐輪スペースあり ／ 駐車場なし</dd></div>
+      </dl>
+      <div class="route-card">
+        <h3>田無駅 北口からの道順</h3>
+        <ol class="route">
+          <li>田無駅 北口の改札を出る<span class="min">0分</span></li>
+          <li>北口ロータリーを抜けて北へ直進<span class="min">徒歩3分</span></li>
+          <li>信号を渡り、1本目の角を右へ<span class="min">徒歩1分</span></li>
+          <li>〇〇ビル 3階（エレベーターあり）<span class="min">合計 徒歩5分</span></li>
+        </ol>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%94%B0%E7%84%A1%E9%A7%85" target="_blank" rel="noopener">Googleマップで田無駅を開く</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-label"><span>10</span>CONTACT</p>
+      <h2 class="sec-title">無料体験・お問い合わせ</h2>
+      <p class="sec-desc">フォームを送信いただくと、2日以内にご連絡します。お急ぎの方はお電話ください。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div><small>お電話</small><p class="tel">042-000-0000</p><small>受付 平日 17:00–22:00 ／ 土日 10:00–16:00</small></div>
+        <div><small>メール</small><p class="val">info@example.com</p></div>
+        <div><small>LINE公式アカウント</small><p class="val">@paraestra-tanashi</p></div>
+      </div>
+      <form class="form" id="trial-form" novalidate>
+        <div><label for="f-name">お名前<span class="req">必須</span></label><input id="f-name" name="name" autocomplete="name" placeholder="田無 太郎"></div>
+        <div><label for="f-age">年代</label><select id="f-age" name="age"><option value="">選択してください</option><option>小学生以下</option><option>中学生・高校生</option><option>20代</option><option>30代</option><option>40代</option><option>50代以上</option></select></div>
+        <div><label for="f-email">メールアドレス<span class="req">必須</span></label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="example@mail.com"></div>
+        <div><label for="f-tel">電話番号</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" placeholder="090-0000-0000"></div>
+        <div class="full"><label for="f-class">ご希望<span class="req">必須</span></label><select id="f-class" name="kind"><option value="">選択してください</option><option>ベーシック体験</option><option>柔術（道着）体験</option><option>ノーギ体験</option><option>レディース体験</option><option>キッズ体験</option><option>見学のみ</option><option>その他のお問い合わせ</option></select></div>
+        <div class="full"><label for="f-msg">希望日時・ご質問</label><textarea id="f-msg" name="message" placeholder="例：4月14日（水）19:00のベーシックを希望します"></textarea></div>
+        <div class="full"><button class="btn btn-red" type="submit">この内容で送信する</button></div>
+        <p class="form-msg" id="form-msg" role="status" hidden></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">塾</span><span><b>パラエストラ田無</b><small>池田柔術男塾道場</small></span></a>
+    <nav aria-label="フッターメニュー">
+      <a href="#classes">クラス</a><a href="#schedule">スケジュール</a><a href="#fees">料金</a><a href="#instructor">塾長紹介</a><a href="#access">アクセス</a><a href="#contact">お問い合わせ</a>
+    </nav>
+    <div class="copy"><span>© 2027 パラエストラ田無</span><span>※ 掲載のスケジュール・料金・住所・連絡先はサンプルです。正式な内容は決まり次第更新します。</span></div>
+  </div>
+</footer>
+
+<div class="mobile-cta"><a class="btn btn-red" href="#contact">無料体験を予約する</a></div>
+
+<script>
+(function () {
+  var btn = document.getElementById('menu-btn');
+  var nav = document.getElementById('nav');
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? '閉じる' : 'メニュー';
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A' && nav.classList.contains('open')) btn.click();
+  });
+
+  // スマホ用：時間割の表から曜日ごとのリストを作る
+  var table = document.querySelector('.schedule');
+  var list = document.getElementById('day-list');
+  var heads = table.querySelectorAll('thead th');
+  for (var d = 1; d < heads.length; d++) {
+    var sec = document.createElement('section');
+    var h = document.createElement('h3');
+    h.textContent = heads[d].textContent;
+    if (heads[d].classList.contains('sat')) h.className = 'sat-h';
+    if (heads[d].classList.contains('sun')) h.className = 'sun-h';
+    var box = document.createElement('div');
+    box.className = 'slots';
+    table.querySelectorAll('tbody tr').forEach(function (tr) {
+      tr.children[d].querySelectorAll('.slot').forEach(function (s) { box.appendChild(s.cloneNode(true)); });
+    });
+    sec.appendChild(h); sec.appendChild(box); list.appendChild(sec);
+  }
+
+  var form = document.getElementById('trial-form');
+  var msg = document.getElementById('form-msg');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var missing = [];
+    if (!document.getElementById('f-name').value.trim()) missing.push('お名前');
+    var email = document.getElementById('f-email');
+    if (!email.value.trim() || !email.checkValidity()) missing.push('メールアドレス');
+    if (!document.getElementById('f-class').value) missing.push('ご希望');
+    msg.hidden = false;
+    if (missing.length) {
+      msg.textContent = missing.join('・') + 'を入力してください。';
+      return;
+    }
+    msg.textContent = document.getElementById('f-name').value.trim() + ' 様、お申し込みを受け付けました。2日以内にご連絡します。（サンプルのため、実際には送信されません）';
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
