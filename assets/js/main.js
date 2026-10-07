@@ -28,7 +28,7 @@
   const radar = document.getElementById('radar');
   if (radar) {
     const data = [
-      ['健康', 6], ['自由時間', 5], ['人間関係', 4], ['資産', 3], ['収入', 2], ['社会的評価', 1]
+      ['健康', 6], ['自由な時間', 5], ['人間関係', 4], ['資産', 3], ['収入', 2], ['世間の評価', 1]
     ];
     const cx = 200, cy = 200, R = 140, max = 6, n = data.length;
     const ns = 'http://www.w3.org/2000/svg';
