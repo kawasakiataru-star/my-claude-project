@@ -634,3 +634,21 @@ strong { font-weight: 700; }
 .bar { grid-template-columns: 150px 1fr 84px; }
 .bar__val { white-space: nowrap; }
 @media (max-width: 560px) { .bar { grid-template-columns: 96px 1fr 72px; } .bar__val { font-size: .85rem; } }
+
+/* ===== 写真の見せ方（全体が見える縦長の枠） ===== */
+.sec-top { grid-template-columns: minmax(0, 1fr) minmax(0, 300px); align-items: center; }
+.sec-photo img { max-height: none; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; box-shadow: 0 24px 48px -28px rgba(0,0,0,.45); }
+.sec-top--wide { grid-template-columns: 1fr; gap: 28px; }
+.sec-photo--wide img { aspect-ratio: 16 / 9; }
+.trips { margin-top: 72px; }
+.trips__lead { margin: 8px 0 20px; color: var(--ink-2); }
+.trips__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.trips__grid figure { margin: 0; }
+.trips__grid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; }
+.trips__grid figcaption { font-size: .82rem; color: var(--muted); margin-top: 6px; }
+@media (max-width: 860px) {
+  .sec-top { grid-template-columns: 1fr; }
+  .sec-photo { max-width: 340px; }
+  .sec-photo--wide { max-width: none; }
+  .trips__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
