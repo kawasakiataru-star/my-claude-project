@@ -652,3 +652,27 @@ strong { font-weight: 700; }
   .sec-photo--wide { max-width: none; }
   .trips__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* ===== 仕事の相談につなげる部品 ===== */
+.hero__cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.btn { display: inline-block; padding: 12px 22px; border-radius: 999px; border: 1.5px solid var(--ink); text-decoration: none; font-weight: 700; font-size: .92rem; transition: background .2s, color .2s; }
+.btn:hover, .btn:focus-visible { background: var(--ink); color: #fff; }
+.btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn--primary:hover, .btn--primary:focus-visible { background: var(--ink); border-color: var(--ink); }
+.offers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.offer { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 30px 26px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); }
+.offer--key { border-color: var(--accent); box-shadow: 0 20px 40px -28px rgba(43,108,216,.6); }
+.offer h3 { font-size: 1.2rem; line-height: 1.5; }
+.offer > p { color: var(--ink-2); font-size: .93rem; }
+.offer dl { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); display: grid; gap: 8px; }
+.offer dt { font-size: .74rem; font-weight: 700; color: var(--accent); }
+.offer dd { font-size: .88rem; }
+.offer__status { align-self: flex-start; font-size: .75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--gray); color: var(--muted); }
+.offer__status--open { background: var(--accent-soft); color: var(--accent); }
+.contact { text-align: center; max-width: 720px; }
+.contact__title { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; margin: 10px 0 18px; text-wrap: balance; }
+.contact__text { color: #cfcfd4; }
+.contact__id { display: inline-block; margin-top: 26px; padding: 14px 26px; border: 1px solid var(--dark-line); border-radius: 12px; font-weight: 700; user-select: all; }
+.trips__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; }
+@media (max-width: 860px) { .offers { grid-template-columns: 1fr; } }
+.hero__title { font-size: clamp(2rem, 4.8vw, 3.6rem); }
