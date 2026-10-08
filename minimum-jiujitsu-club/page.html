@@ -77,6 +77,8 @@ p{margin:0}
 .hero h1 .soft{color:var(--blue)}
 .hero-lead{font-size:clamp(16px,1.9vw,18px);color:var(--muted);max-width:30em}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.target{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--ink)}
+.target b{font-family:var(--font-mono);font-weight:500;font-size:11px;letter-spacing:.1em;color:var(--blue);border:1px solid var(--blue);border-radius:999px;padding:1px 10px}
 .hero-photo{margin:0;position:relative}
 .hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:72% 70%;border-radius:200px 200px var(--radius) var(--radius)}
 .hero-photo figcaption{font-size:12px;color:var(--muted);margin-top:8px;text-align:right}
@@ -227,6 +229,8 @@ td.yen small{font-size:12px;font-weight:500;color:var(--muted)}
 .contact-intro p{color:var(--muted)}
 form{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,3vw,32px);display:grid;gap:16px;min-width:0}
 label{display:grid;gap:6px;font-size:14px;font-weight:700}
+label.check{display:flex;align-items:center;gap:10px;font-weight:500}
+label.check input{width:20px;height:20px;padding:0;accent-color:var(--blue)}
 label span.opt{font-weight:400;color:var(--muted);font-size:12px}
 input,select,textarea{font:inherit;font-weight:400;font-size:16px;color:var(--ink);background:var(--mat);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
 textarea{min-height:96px;resize:vertical}
@@ -261,11 +265,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     <div class="hero-text">
       <span class="status">OPENING SOON ／ 場所は現在調整中</span>
       <h1>柔術を、<br><span class="soft">ゆるく、長く、</span><br>たのしく。</h1>
-      <p class="hero-lead">ミニマム柔術クラブは、はじめての人のための小さな柔術・グラップリング道場です。試合で勝つためではなく、気持ちよく体を動かして、いい仲間と長く続けるための場所をつくります。</p>
+      <p class="hero-lead">ミニマム柔術クラブは、はじめての大人のための小さな柔術・グラップリング道場です。試合で勝つためではなく、気持ちよく体を動かして、いい仲間と長く続けるための場所をつくります。</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#trial">無料体験を申し込む</a>
         <a class="btn" href="#concept">どんな道場？</a>
       </div>
+      <p class="target"><b>対象</b>18歳以上の男性</p>
     </div>
     <figure class="hero-photo">
       <img src="img/hero-meadow.webp" alt="富士山が見える広い草原に立つ代表・川崎" width="1050" height="1400">
@@ -327,6 +332,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     <div class="sec-head">
       <span class="eyebrow">For you</span>
       <h2>こんな人を待っています</h2>
+      <p>大人の男性だけの、落ち着いた道場です。自分のペースで、自分の意思で続けたい人を歓迎します。</p>
     </div>
     <ul class="forwhom">
       <li>30代・40代から、何か新しい運動を始めたい</li>
@@ -485,7 +491,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     <div class="sec-head">
       <span class="eyebrow">Price</span>
       <h2>料金<span class="draft">案・未確定</span></h2>
-      <p>通う回数に合わせて選べるようにする予定です。正式な金額は、場所が決まり次第お知らせします。</p>
+      <p>大人だけの小さな道場なので、そのぶん料金はおさえめにする予定です。通う回数に合わせて選べるようにし、正式な金額は場所が決まり次第お知らせします。</p>
     </div>
     <div class="price-table-wrap">
       <table>
@@ -530,7 +536,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
       <details><summary>40代・50代からでも始められますか？</summary><p>始められます。柔術は殴る・蹴るがなく、体の大きさや力よりも、体の使い方が大事な競技です。強度はその人に合わせて調整します。</p></details>
       <details><summary>試合に出ないといけませんか？</summary><p>出なくてかまいません。この道場は試合のための道場ではありません。出てみたい人がいれば、もちろん応援します。</p></details>
       <details><summary>ケガが心配です。</summary><p>スパーリングは自由参加で、危険度の高い技は段階的に扱います。不安な部位がある方は、最初に教えてください。</p></details>
-      <details><summary>女性や体の小さい人でも参加できますか？</summary><p>参加できます。組む相手の体格や強さには配慮し、無理な組み合わせはしません。</p></details>
+      <details><summary>参加できるのはどんな人ですか？</summary><p>18歳以上の男性が対象です。女性の方、18歳未満の方はご参加いただけませんので、ご了承ください。</p></details>
+      <details><summary>体が小さくても大丈夫ですか？</summary><p>大丈夫です。組む相手の体格や強さには配慮し、無理な組み合わせはしません。</p></details>
       <details><summary>柔術とグラップリングは何が違いますか？</summary><p>柔術は道衣（柔道着に似た服）を着て、襟や袖をつかむことができます。グラップリングは道衣を着ずに、Tシャツや短パンで行う組み技です。</p></details>
     </div>
   </div>
@@ -571,6 +578,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
       <label for="f-msg">気になること <span class="opt">任意</span>
         <textarea id="f-msg" name="message" placeholder="例）腰痛があります／平日夜に通いたいです"></textarea>
       </label>
+      <label class="check" for="f-age"><input id="f-age" name="eligible" type="checkbox" required>18歳以上の男性です</label>
       <button class="btn btn-primary" type="submit">体験を申し込む</button>
       <p class="form-msg" id="form-msg" role="status" hidden></p>
     </form>
@@ -582,7 +590,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 <footer>
   <div class="wrap">
     <span class="logo"><span class="logo-mark" aria-hidden="true"></span>ミニマム柔術クラブ</span>
-    <span>柔術・グラップリング ／ 場所は現在調整中</span>
+    <span>柔術・グラップリング ／ 18歳以上の男性対象 ／ 場所は現在調整中</span>
     <span>© ミニマム柔術クラブ</span>
   </div>
 </footer>
@@ -595,6 +603,8 @@ document.getElementById('trial-form').addEventListener('submit', function (e) {
   var mail = document.getElementById('f-contact').value.trim();
   if (!name || !mail) {
     msg.textContent = 'お名前とメールアドレスを入力してください。';
+  } else if (!document.getElementById('f-age').checked) {
+    msg.textContent = '対象は18歳以上の男性です。チェックを入れてください。';
   } else {
     msg.textContent = name + ' さん、ありがとうございます（見本のため、実際には送信されていません）。';
   }
