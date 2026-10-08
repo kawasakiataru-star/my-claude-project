@@ -1,0 +1,597 @@
+<title>ミニマム柔術クラブ</title>
+<meta name="description" content="30代・40代からでも、ゆるく長く続けられる。初心者のための小さな柔術・グラップリング道場、ミニマム柔術クラブ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: 道場のマットのような淡い地に、帯の色（白→青）を唯一のアクセントとして使う。1カラム基調、写真だけ大きく。 */
+:root{
+  --mat:#eef1ec;        /* 地：明るいマットグレー（わずかに緑） */
+  --paper:#fbfcf9;      /* 面：カード・フォーム */
+  --ink:#1d2836;        /* 文字：紺の道衣 */
+  --muted:#5b6673;      /* 補助文字 */
+  --line:#d5dbd3;       /* 罫線 */
+  --blue:#2c5aa8;       /* アクセント：青帯 */
+  --blue-soft:#dde6f5;  /* 青帯の淡色 */
+  --leaf:#5f8a4e;       /* 草原の緑：小さな印だけ */
+  --belt-white:#ffffff;
+  --belt-bar:#1d2836;   /* 帯の黒いバー部分 */
+  --stripe:#ffffff;
+  --font-display:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
+  --font-body:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --radius:18px;
+  --gutter:clamp(16px,4vw,40px);
+  --maxw:1080px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --mat:#161c22;--paper:#1e262e;--ink:#e8ece6;--muted:#a3adb7;--line:#2f3a44;
+    --blue:#7fa6e8;--blue-soft:#24324a;--leaf:#8fbb7c;--belt-white:#e9ecef;--belt-bar:#0d1116;--stripe:#e9ecef;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --mat:#161c22;--paper:#1e262e;--ink:#e8ece6;--muted:#a3adb7;--line:#2f3a44;
+  --blue:#7fa6e8;--blue-soft:#24324a;--leaf:#8fbb7c;--belt-white:#e9ecef;--belt-bar:#0d1116;--stripe:#e9ecef;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--mat);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.85;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--font-display);line-height:1.35;text-wrap:balance;margin:0;letter-spacing:.03em}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+.prose{max-width:36em}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--mat) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-display);font-weight:900;font-size:17px;white-space:nowrap}
+.logo-mark{width:34px;height:12px;border-radius:3px;background:var(--belt-white);border:1.5px solid var(--ink);position:relative;flex:none}
+.logo-mark::after{content:"";position:absolute;right:4px;top:-1.5px;bottom:-1.5px;width:12px;background:var(--belt-bar)}
+.nav{display:flex;gap:4px 18px;flex-wrap:wrap;justify-content:flex-end;font-size:14px}
+.nav a{color:var(--muted);text-decoration:none}
+.nav a:hover{color:var(--ink)}
+.nav .nav-cta{color:var(--blue);font-weight:700}
+@media (max-width:760px){.nav a:not(.nav-cta){display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:16px;padding:14px 26px;border-radius:999px;text-decoration:none;border:2px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--blue);border-color:var(--blue);color:var(--paper)}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,88px) clamp(48px,7vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
+.hero-text{min-width:0;display:grid;gap:24px}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);font-family:var(--font-mono);letter-spacing:.06em}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--leaf)}
+.hero h1{font-size:clamp(38px,6.4vw,68px);font-weight:900;line-height:1.25}
+.hero h1 .soft{color:var(--blue)}
+.hero-lead{font-size:clamp(16px,1.9vw,18px);color:var(--muted);max-width:30em}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-photo{margin:0;position:relative}
+.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:72% 70%;border-radius:200px 200px var(--radius) var(--radius)}
+.hero-photo figcaption{font-size:12px;color:var(--muted);margin-top:8px;text-align:right}
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-photo{max-width:420px}
+}
+
+/* section */
+section{padding-block:clamp(56px,8vw,104px)}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(28px,4vw,48px)}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;color:var(--blue);text-transform:uppercase}
+.sec-head h2{font-size:clamp(26px,3.6vw,38px);font-weight:900}
+.sec-head p{color:var(--muted);max-width:36em}
+.band{background:var(--paper);border-block:1px solid var(--line)}
+
+/* concept: three minimums */
+.minimums{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,32px)}
+.minimum{display:grid;gap:10px;align-content:start;min-width:0}
+.minimum .k{font-family:var(--font-display);font-weight:900;font-size:22px}
+.minimum .k small{display:block;font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.1em}
+.minimum p{color:var(--muted)}
+@media (max-width:760px){.minimums{grid-template-columns:1fr}}
+
+.dodont{margin-top:clamp(36px,5vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--paper)}
+.dodont > div{padding:24px clamp(18px,3vw,32px);min-width:0}
+.dodont > div + div{border-left:1px solid var(--line)}
+.dodont h3{font-size:17px;margin-bottom:12px}
+.dodont ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.dodont li{padding-left:1.5em;position:relative}
+.do li::before{content:"○";position:absolute;left:0;color:var(--blue);font-weight:700}
+.dont li::before{content:"—";position:absolute;left:0;color:var(--muted)}
+.dont li{color:var(--muted)}
+@media (max-width:640px){.dodont{grid-template-columns:1fr}.dodont > div + div{border-left:0;border-top:1px solid var(--line)}}
+
+/* for whom */
+.forwhom{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 32px;margin:0;padding:0;list-style:none}
+.forwhom li{display:flex;gap:14px;align-items:baseline;padding-block:14px;border-bottom:1px dashed var(--line);min-width:0}
+.forwhom li::before{content:"";flex:none;width:18px;height:6px;border-radius:2px;background:var(--blue);transform:translateY(-3px)}
+@media (max-width:640px){.forwhom{grid-template-columns:1fr}}
+
+/* belt path */
+.belt-path{display:grid;gap:22px}
+.belt-row{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:center}
+.belt-label{font-family:var(--font-display);font-weight:700;font-size:15px}
+.belt-label small{display:block;font-family:var(--font-body);font-weight:400;color:var(--muted);font-size:13px}
+.belt{height:30px;border-radius:5px;border:1.5px solid var(--ink);background:var(--belt-white);position:relative;max-width:520px}
+.belt.blue{background:var(--blue);border-color:var(--blue)}
+.belt-bar{position:absolute;right:22px;top:-1.5px;bottom:-1.5px;width:96px;background:var(--belt-bar);display:flex;gap:7px;justify-content:center;align-items:stretch;padding-inline:10px}
+.belt-bar i{width:7px;background:var(--stripe)}
+@media (max-width:560px){.belt-row{grid-template-columns:1fr;gap:8px}.belt-bar{width:84px;right:14px}}
+.note{font-size:13px;color:var(--muted);margin-top:18px;max-width:42em}
+
+/* classes */
+.classes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.class-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:grid;gap:10px;align-content:start;min-width:0}
+.class-card .tag{font-family:var(--font-mono);font-size:12px;color:var(--muted);letter-spacing:.08em}
+.class-card h3{font-size:20px}
+.class-card p{color:var(--muted);font-size:15px}
+@media (max-width:860px){.classes{grid-template-columns:1fr}}
+
+.flow{margin-top:clamp(36px,5vw,56px);display:grid;gap:16px}
+.flow h3{font-size:19px}
+.timeline{display:flex;width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--line);font-size:13px}
+.timeline > div{padding:12px 10px;min-width:0;display:grid;gap:2px;background:var(--paper)}
+.timeline > div + div{border-left:1px solid var(--line)}
+.timeline b{font-family:var(--font-mono);font-weight:500;font-variant-numeric:tabular-nums;color:var(--blue)}
+.timeline .opt{background:var(--blue-soft)}
+@media (max-width:640px){.timeline{flex-direction:column}.timeline > div{flex-basis:auto!important}.timeline > div + div{border-left:0;border-top:1px solid var(--line)}}
+
+/* safety */
+.safety{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 40px}
+.safety div{display:grid;gap:6px;min-width:0}
+.safety h3{font-size:17px}
+.safety p{color:var(--muted);font-size:15px}
+@media (max-width:640px){.safety{grid-template-columns:1fr}}
+
+/* coach */
+.coach{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,5vw,64px);align-items:start}
+.coach-photo{margin:0;display:grid;gap:12px}
+.coach-photo img{border-radius:var(--radius);width:100%;aspect-ratio:3/4;object-fit:cover;object-position:60% 40%}
+.coach-photo figcaption{font-size:12px;color:var(--muted)}
+.coach-body{display:grid;gap:22px;min-width:0}
+.coach-body h2{font-size:clamp(26px,3.6vw,38px);font-weight:900}
+.coach-name{font-family:var(--font-display);font-weight:700;font-size:20px}
+.coach-name small{font-family:var(--font-body);font-weight:400;font-size:14px;color:var(--muted);margin-left:8px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.facts div{background:var(--paper);padding:14px 16px;display:grid;gap:2px}
+.facts b{font-family:var(--font-display);font-size:22px;font-weight:900}
+.facts span{font-size:12px;color:var(--muted)}
+.creds{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:15px}
+.creds li{padding-left:1.2em;position:relative}
+.creds li::before{content:"・";position:absolute;left:0;color:var(--blue)}
+.quote{font-family:var(--font-display);font-size:clamp(18px,2.2vw,22px);font-weight:700;line-height:1.7;border-left:4px solid var(--blue);padding-left:18px}
+.teach{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0;padding:0;list-style:none;counter-reset:s}
+.teach li{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:14px;counter-increment:s;min-width:0}
+.teach li::before{content:"STEP " counter(s);display:block;font-family:var(--font-mono);font-size:11px;color:var(--blue);letter-spacing:.08em}
+.teach b{display:block;font-family:var(--font-display)}
+@media (max-width:860px){.coach{grid-template-columns:1fr}.coach-photo{max-width:420px}}
+@media (max-width:560px){.teach{grid-template-columns:1fr 1fr}.facts{grid-template-columns:1fr 1fr 1fr}.facts b{font-size:18px}}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.gallery figure{margin:0;display:grid;gap:6px;min-width:0}
+.gallery img{width:100%;height:auto;object-fit:cover;border-radius:14px;aspect-ratio:4/3}
+.gallery figcaption{font-size:12px;color:var(--muted)}
+.g-wide{grid-column:span 3}
+.g-third{grid-column:span 2}
+@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr}.g-wide{grid-column:span 2}.g-third{grid-column:span 1}}
+
+/* price */
+.price-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
+th,td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--muted);background:var(--mat)}
+td.yen{font-family:var(--font-display);font-weight:900;font-size:20px;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.yen small{font-size:12px;font-weight:500;color:var(--muted)}
+.draft{display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--blue);border:1px solid var(--blue);border-radius:999px;padding:1px 9px;vertical-align:middle;margin-left:8px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0;padding:0;list-style:none;counter-reset:st}
+.steps li{counter-increment:st;display:grid;gap:8px;align-content:start;padding-top:18px;border-top:2px solid var(--ink);min-width:0}
+.steps li::before{content:counter(st);font-family:var(--font-display);font-weight:900;font-size:30px;color:var(--blue);line-height:1}
+.steps h3{font-size:18px}
+.steps p{color:var(--muted);font-size:15px}
+.bring{margin-top:28px;font-size:15px;color:var(--muted)}
+.bring b{color:var(--ink)}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:780px}
+.faq details{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:0 20px}
+.faq summary{cursor:pointer;font-family:var(--font-display);font-weight:700;padding-block:16px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"＋";color:var(--blue);flex:none}
+.faq details[open] summary::after{content:"－"}
+.faq details p{padding-bottom:18px;color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,56px);align-items:start}
+.contact-intro{display:grid;gap:18px;min-width:0}
+.contact-intro h2{font-size:clamp(26px,3.6vw,38px);font-weight:900}
+.contact-intro p{color:var(--muted)}
+form{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,3vw,32px);display:grid;gap:16px;min-width:0}
+label{display:grid;gap:6px;font-size:14px;font-weight:700}
+label span.opt{font-weight:400;color:var(--muted);font-size:12px}
+input,select,textarea{font:inherit;font-weight:400;font-size:16px;color:var(--ink);background:var(--mat);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px}
+.form-msg{font-size:14px;color:var(--leaf);font-weight:700}
+@media (max-width:760px){.contact{grid-template-columns:1fr}}
+
+/* footer */
+footer{padding-block:40px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+</style>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="logo-mark" aria-hidden="true"></span>ミニマム柔術クラブ</a>
+    <nav class="nav" aria-label="ページ内メニュー">
+      <a href="#concept">考え方</a>
+      <a href="#class">クラス</a>
+      <a href="#coach">代表</a>
+      <a href="#price">料金</a>
+      <a href="#faq">よくある質問</a>
+      <a class="nav-cta" href="#trial">無料体験</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="status">OPENING SOON ／ 場所は現在調整中</span>
+      <h1>柔術を、<br><span class="soft">ゆるく、長く、</span><br>たのしく。</h1>
+      <p class="hero-lead">ミニマム柔術クラブは、はじめての人のための小さな柔術・グラップリング道場です。試合で勝つためではなく、気持ちよく体を動かして、いい仲間と長く続けるための場所をつくります。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#trial">無料体験を申し込む</a>
+        <a class="btn" href="#concept">どんな道場？</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="img/hero-meadow.webp" alt="富士山が見える広い草原に立つ代表・川崎" width="1050" height="1400">
+      <figcaption>代表 川崎（オフの日の散歩にて）</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section id="concept" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Concept</span>
+      <h2>最先端より、続けられる柔術。</h2>
+      <p>代表の私自身、格闘技を本格的に始めたのは30歳を過ぎてからです。20代でバリバリやってきたわけでも、最新の技術にくわしいわけでもありません。それでもコツコツ続けていたら、黒帯をいただき、初心者に教える側にもなれました。だからこの道場は、ちいさく始めて、長く続けることを大切にします。</p>
+    </div>
+
+    <div class="minimums">
+      <div class="minimum">
+        <div class="k"><small>MINIMUM 01</small>小さな人数</div>
+        <p>少人数だから、名前と顔がすぐに覚えられます。一人ひとりの体力やペースに合わせて教えられます。</p>
+      </div>
+      <div class="minimum">
+        <div class="k"><small>MINIMUM 02</small>小さな目標</div>
+        <p>「今日はエビができた」「青帯になってみたい」。大会の結果ではなく、自分の小さな成長を目標にします。</p>
+      </div>
+      <div class="minimum">
+        <div class="k"><small>MINIMUM 03</small>小さな負担</div>
+        <p>ケガをしない強度、通いやすい回数、続けやすい料金。体にもお財布にも、無理をさせません。</p>
+      </div>
+    </div>
+
+    <div class="dodont">
+      <div class="do">
+        <h3>この道場がやること</h3>
+        <ul>
+          <li>基本の動きを、順番に分けてていねいに教える</li>
+          <li>スパーリングは相手に合わせた強さで</li>
+          <li>年齢・体力・経験に合わせて練習内容を調整する</li>
+          <li>道場の外でも気持ちよく付き合える仲間づくり</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <h3>この道場がやらないこと</h3>
+        <ul>
+          <li>試合に向けた追い込み練習</li>
+          <li>根性論や「見て覚えろ」式の指導</li>
+          <li>先輩・後輩の上下関係</li>
+          <li>飲み会や大会出場の強制</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section id="forwhom">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">For you</span>
+      <h2>こんな人を待っています</h2>
+    </div>
+    <ul class="forwhom">
+      <li>30代・40代から、何か新しい運動を始めたい</li>
+      <li>格闘技は未経験。運動にもあまり自信がない</li>
+      <li>白帯から、いつか青帯になってみたい</li>
+      <li>試合には出なくていい。練習そのものを楽しみたい</li>
+      <li>他のジムは、ちょっと雰囲気が激しすぎた</li>
+      <li>仕事以外の、ゆるいつながりがほしい</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BELT PATH -->
+<section id="belt" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">White to Blue</span>
+      <h2>まずは「白帯から青帯へ」</h2>
+      <p>柔術には帯の色で段階があり、白帯の黒い部分に巻く白いテープ（ストライプ）が、少しずつ増えていきます。ミニマム柔術クラブでは、まず青帯をひとつのゴールにします。</p>
+    </div>
+    <div class="belt-path" role="list">
+      <div class="belt-row" role="listitem">
+        <div class="belt-label">白帯<small>入会したらここから</small></div>
+        <div class="belt" aria-label="白帯 ストライプなし"><span class="belt-bar"></span></div>
+      </div>
+      <div class="belt-row" role="listitem">
+        <div class="belt-label">白帯 2本<small>基本の動きに慣れてくる</small></div>
+        <div class="belt" aria-label="白帯 ストライプ2本"><span class="belt-bar"><i></i><i></i></span></div>
+      </div>
+      <div class="belt-row" role="listitem">
+        <div class="belt-label">白帯 4本<small>自分の得意な形が見えてくる</small></div>
+        <div class="belt" aria-label="白帯 ストライプ4本"><span class="belt-bar"><i></i><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="belt-row" role="listitem">
+        <div class="belt-label">青帯<small>ひとつめのゴール</small></div>
+        <div class="belt blue" aria-label="青帯"><span class="belt-bar"></span></div>
+      </div>
+    </div>
+    <p class="note">※ 昇帯にかかる期間は、練習の頻度や年齢、体力によって大きく変わります。ここでは期間の約束はしません。焦らず、ケガなく続けることを優先します。</p>
+  </div>
+</section>
+
+<!-- CLASSES -->
+<section id="class">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Class</span>
+      <h2>クラスの内容</h2>
+      <p>道衣を着る「柔術」と、Tシャツ・短パンで行う「グラップリング（ノーギ）」の両方を予定しています。</p>
+    </div>
+    <div class="classes">
+      <div class="class-card">
+        <span class="tag">BEGINNER ／ 道衣なしでもOK</span>
+        <h3>はじめてクラス</h3>
+        <p>受け身、エビ（床で体をずらす基本動作）、抑え込みからの逃げ方など、ケガをしないための基本だけを練習します。</p>
+      </div>
+      <div class="class-card">
+        <span class="tag">GI ／ 道衣あり</span>
+        <h3>柔術クラス</h3>
+        <p>道衣の襟や袖をつかって戦う柔術。ガード（下からの攻防）やパス（ガードを越える動き）を順番に学びます。</p>
+      </div>
+      <div class="class-card">
+        <span class="tag">NO-GI ／ 道衣なし</span>
+        <h3>グラップリングクラス</h3>
+        <p>道衣を着ずに行う組み技。手ぶらで始めやすく、体の使い方がシンプルにわかります。</p>
+      </div>
+    </div>
+
+    <div class="flow">
+      <h3>1回の練習の流れ（60分の例）</h3>
+      <div class="timeline">
+        <div style="flex:10"><b>10分</b>準備運動・ストレッチ</div>
+        <div style="flex:20"><b>20分</b>技術練習（その日のテーマを1〜2個）</div>
+        <div style="flex:15"><b>15分</b>ドリル（決まった動きの反復）</div>
+        <div class="opt" style="flex:15"><b>15分</b>軽いスパーリング（参加は自由）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section id="safety" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Safety</span>
+      <h2>安心して続けるための約束</h2>
+    </div>
+    <div class="safety">
+      <div><h3>スパーリングは自由参加</h3><p>見学だけ、ドリルだけの日があっても大丈夫です。慣れるまでは、指導者や経験者と組みます。</p></div>
+      <div><h3>「まいった」はすぐに</h3><p>苦しい・痛いと思ったら、相手をたたいて合図（タップ）します。タップされたらすぐ離す。これが一番大事なルールです。</p></div>
+      <div><h3>危険な技は段階的に</h3><p>初心者のうちは、ヒザをひねる足関節技など、ケガにつながりやすい技は扱いません。</p></div>
+      <div><h3>体調・持病は遠慮なく</h3><p>腰痛やひざの不安、ブランクなどは、最初に教えてください。できる範囲に合わせた練習を一緒に考えます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COACH -->
+<section id="coach">
+  <div class="wrap coach">
+    <figure class="coach-photo">
+      <img src="img/blackbelt.webp" alt="道場で黒帯を巻き、笑顔でガッツポーズをする代表・川崎" width="825" height="1100">
+      <figcaption>黒帯をいただいた日</figcaption>
+    </figure>
+    <div class="coach-body">
+      <span class="eyebrow">Coach</span>
+      <h2>代表あいさつ</h2>
+      <p class="coach-name">川崎<small>ミニマム柔術クラブ 代表</small></p>
+      <div class="facts">
+        <div><b>30代〜</b><span>本格的に格闘技を開始</span></div>
+        <div><b>約15年</b><span>格闘技歴</span></div>
+        <div><b>黒帯</b><span>柔術・柔道</span></div>
+      </div>
+      <p class="quote">まだまだ修行の身です。でも、30代から始めても、コツコツ続ければちゃんと強くなれる。それを一緒に体験してもらえたらうれしいです。</p>
+      <ul class="creds">
+        <li>ブラジリアン柔術 黒帯 ／ 柔道 黒帯</li>
+        <li>クロスポイント パラエストラ ハイジマにて柔術・グラップリングのインストラクターを担当</li>
+        <li>JBJJF（日本ブラジリアン柔術連盟）主催大会で入賞経験あり</li>
+        <li>本業は公認心理師。相手の得意・苦手を見て、伝え方を変えることが仕事です</li>
+      </ul>
+      <div>
+        <p style="font-weight:700;margin-bottom:10px">教え方：感覚ではなく、順番で伝える</p>
+        <ol class="teach">
+          <li><b>全体を見せる</b>この技の目的は何か</li>
+          <li><b>分けて教える</b>動きを2〜3つに分解</li>
+          <li><b>くり返す</b>つまずく所を先に伝える</li>
+          <li><b>試してみる</b>軽いスパーで使って直す</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="community" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Community</span>
+      <h2>練習のあとは、みんな笑顔</h2>
+      <p>代表がこれまで一緒に練習し、指導してきた仲間たちとの写真です。ミニマム柔術クラブでも、こんな雰囲気を目指します。</p>
+    </div>
+    <div class="gallery">
+      <figure class="g-wide"><img src="img/group-gi.webp" alt="道衣姿の練習仲間たちとの集合写真" width="1477" height="1108"><figcaption>柔術クラスのあとに</figcaption></figure>
+      <figure class="g-wide"><img src="img/group-cage.webp" alt="ケージの中でポーズをとる練習仲間たちの集合写真" width="1477" height="1108"><figcaption>出稽古でもいつもこの調子</figcaption></figure>
+      <figure class="g-third"><img src="img/nogi-crew.webp" alt="ノーギ練習後の5人の集合写真" width="1500" height="1125"><figcaption>グラップリングの日</figcaption></figure>
+      <figure class="g-third"><img src="img/podium-2023.webp" alt="East Jiu-Jitsu Open 2023の表彰台、1位の位置に立つ代表" width="1400" height="1050"><figcaption>East Jiu-Jitsu Open 2023</figcaption></figure>
+      <figure class="g-third"><img src="img/nogi-gold.webp" alt="ノーギ大会でメダルを2つ持つ代表" width="1400" height="1050"><figcaption>試合に出たい人は、もちろん応援します</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section id="price">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Price</span>
+      <h2>料金<span class="draft">案・未確定</span></h2>
+      <p>通う回数に合わせて選べるようにする予定です。正式な金額は、場所が決まり次第お知らせします。</p>
+    </div>
+    <div class="price-table-wrap">
+      <table>
+        <thead><tr><th>プラン</th><th>月額（税込）</th><th>こんな人に</th></tr></thead>
+        <tbody>
+          <tr><td>無料体験</td><td class="yen">0<small> 円</small></td><td>まずは雰囲気を見てみたい人。道衣は無料で貸し出します</td></tr>
+          <tr><td>ミニマム（月4回）</td><td class="yen">7,700<small> 円</small></td><td>週1回のペースで、ゆっくり続けたい人</td></tr>
+          <tr><td>レギュラー（通い放題）</td><td class="yen">11,000<small> 円</small></td><td>週2回以上で、青帯を目指したい人</td></tr>
+          <tr><td>ビジター（1回）</td><td class="yen">2,200<small> 円</small></td><td>他の道場の方、出張や旅行のついでに</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">入会金・年会費・スポーツ保険の扱いも検討中です。</p>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section id="start" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How to start</span>
+      <h2>はじめるまでの流れ</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>体験を申し込む</h3><p>下のフォームから、希望日と経験の有無を送ってください。こちらから日時をご連絡します。</p></li>
+      <li><h3>体験クラスに参加</h3><p>はじめてクラスで、受け身やエビなど基本の動きを体験。見学だけでもかまいません。</p></li>
+      <li><h3>入会は、気に入ったら</h3><p>その場で決めなくて大丈夫です。しつこい勧誘はしません。</p></li>
+    </ol>
+    <p class="bring"><b>持ち物：</b>動きやすい服（Tシャツ・短パンなど）、飲み物、タオル。道衣は無料で貸し出します。爪は短く切ってきてください。</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq">
+      <details><summary>運動がまったくの未経験でも大丈夫ですか？</summary><p>大丈夫です。代表自身も30歳を過ぎてから始めました。最初は準備運動と基本動作だけでも十分です。</p></details>
+      <details><summary>40代・50代からでも始められますか？</summary><p>始められます。柔術は殴る・蹴るがなく、体の大きさや力よりも、体の使い方が大事な競技です。強度はその人に合わせて調整します。</p></details>
+      <details><summary>試合に出ないといけませんか？</summary><p>出なくてかまいません。この道場は試合のための道場ではありません。出てみたい人がいれば、もちろん応援します。</p></details>
+      <details><summary>ケガが心配です。</summary><p>スパーリングは自由参加で、危険度の高い技は段階的に扱います。不安な部位がある方は、最初に教えてください。</p></details>
+      <details><summary>女性や体の小さい人でも参加できますか？</summary><p>参加できます。組む相手の体格や強さには配慮し、無理な組み合わせはしません。</p></details>
+      <details><summary>柔術とグラップリングは何が違いますか？</summary><p>柔術は道衣（柔道着に似た服）を着て、襟や袖をつかむことができます。グラップリングは道衣を着ずに、Tシャツや短パンで行う組み技です。</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- TRIAL FORM -->
+<section id="trial" class="band">
+  <div class="wrap contact">
+    <div class="contact-intro">
+      <span class="eyebrow">Free trial</span>
+      <h2>まずは一度、<br>マットに上がってみませんか。</h2>
+      <p>オープン前の今は、体験のご希望を先にお預かりしています。場所と日程が決まったら、こちらからご連絡します。</p>
+      <p style="font-size:13px">※ このフォームは見本です。公開時は Googleフォーム・LINE公式アカウント・予約システムなどにつなぎます。</p>
+    </div>
+    <form id="trial-form" novalidate>
+      <label for="f-name">お名前
+        <input id="f-name" name="name" type="text" autocomplete="name" placeholder="例）山田 太郎" required>
+      </label>
+      <label for="f-contact">メールアドレス
+        <input id="f-contact" name="email" type="email" autocomplete="email" placeholder="例）name@example.com" required>
+      </label>
+      <label for="f-exp">格闘技の経験
+        <select id="f-exp" name="experience">
+          <option>まったくの未経験</option>
+          <option>少しだけある（〜1年）</option>
+          <option>白帯で続けている</option>
+          <option>青帯以上</option>
+        </select>
+      </label>
+      <label for="f-class">気になるクラス
+        <select id="f-class" name="class">
+          <option>はじめてクラス</option>
+          <option>柔術（道衣あり）</option>
+          <option>グラップリング（道衣なし）</option>
+          <option>まだ分からない</option>
+        </select>
+      </label>
+      <label for="f-msg">気になること <span class="opt">任意</span>
+        <textarea id="f-msg" name="message" placeholder="例）腰痛があります／平日夜に通いたいです"></textarea>
+      </label>
+      <button class="btn btn-primary" type="submit">体験を申し込む</button>
+      <p class="form-msg" id="form-msg" role="status" hidden></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo"><span class="logo-mark" aria-hidden="true"></span>ミニマム柔術クラブ</span>
+    <span>柔術・グラップリング ／ 場所は現在調整中</span>
+    <span>© ミニマム柔術クラブ</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('trial-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var msg = document.getElementById('form-msg');
+  var name = document.getElementById('f-name').value.trim();
+  var mail = document.getElementById('f-contact').value.trim();
+  if (!name || !mail) {
+    msg.textContent = 'お名前とメールアドレスを入力してください。';
+  } else {
+    msg.textContent = name + ' さん、ありがとうございます（見本のため、実際には送信されていません）。';
+  }
+  msg.hidden = false;
+});
+</script>
