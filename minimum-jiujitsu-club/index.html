@@ -183,14 +183,18 @@ section{padding-block:clamp(56px,8vw,104px)}
 @media (max-width:860px){.coach{grid-template-columns:1fr}.coach-photo{max-width:420px}}
 @media (max-width:560px){.teach{grid-template-columns:1fr 1fr}.facts{grid-template-columns:1fr 1fr 1fr}.facts b{font-size:18px}}
 
-/* gallery */
-.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+/* community: 集合写真をぼかして「雰囲気」として敷き、手前に代表の写真 */
+.community{position:relative;overflow:hidden;border-block:1px solid var(--line)}
+.community-bg{position:absolute;inset:-20px;background:url("img/group-gi.webp") center/cover no-repeat}
+.community-bg::after{content:"";position:absolute;inset:0;background:color-mix(in srgb,var(--paper) 80%,transparent)}
+.community-inner{position:relative}
+.gallery{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:16px;align-items:end}
 .gallery figure{margin:0;display:grid;gap:6px;min-width:0}
-.gallery img{width:100%;height:auto;object-fit:cover;border-radius:14px;aspect-ratio:4/3}
+.gallery img{width:100%;height:auto;object-fit:cover;border-radius:14px;aspect-ratio:3/4}
 .gallery figcaption{font-size:12px;color:var(--muted)}
-.g-wide{grid-column:span 3}
-.g-third{grid-column:span 2}
-@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr}.g-wide{grid-column:span 2}.g-third{grid-column:span 1}}
+.gallery-note{display:grid;gap:12px;align-self:center;min-width:0}
+.gallery-note p:last-child{color:var(--muted)}
+@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr}.gallery-note{grid-column:span 2}}
 
 /* price */
 .price-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper)}
@@ -283,7 +287,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     <div class="sec-head">
       <span class="eyebrow">Concept</span>
       <h2>最先端より、続けられる柔術。</h2>
-      <p>代表の私自身、格闘技を本格的に始めたのは30歳を過ぎてからです。20代でバリバリやってきたわけでも、最新の技術にくわしいわけでもありません。それでもコツコツ続けていたら、黒帯をいただき、初心者に教える側にもなれました。だからこの道場は、ちいさく始めて、長く続けることを大切にします。</p>
+      <p>代表の私は、学生時代に少し柔道をかじった程度で、格闘技に本格的に打ち込み始めたのは30歳を過ぎてからです。20代でバリバリやってきたわけでも、最新の技術にくわしいわけでもありません。それでもコツコツ続けていたら、黒帯をいただき、初心者に教える側にもなれました。だからこの道場は、ちいさく始めて、長く続けることを大切にします。</p>
     </div>
 
     <div class="minimums">
@@ -297,7 +301,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
       </div>
       <div class="minimum">
         <div class="k"><small>MINIMUM 03</small>小さな負担</div>
-        <p>ケガをしない強度、通いやすい回数、続けやすい料金。体にもお財布にも、無理をさせません。</p>
+        <p>ケガをしない強度、通いやすいコンパクトな道場、続けやすい料金。体にもお財布にも、無理をさせません。</p>
       </div>
     </div>
 
@@ -431,21 +435,21 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   <div class="wrap coach">
     <figure class="coach-photo">
       <img src="img/blackbelt.webp" alt="道場で黒帯を巻き、笑顔でガッツポーズをする代表・川崎" width="825" height="1100">
-      <figcaption>黒帯をいただいた日</figcaption>
+      <figcaption>黒帯をいただいた日。30代から始めても、ここまで来られました</figcaption>
     </figure>
     <div class="coach-body">
       <span class="eyebrow">Coach</span>
       <h2>代表あいさつ</h2>
       <p class="coach-name">川崎<small>ミニマム柔術クラブ 代表</small></p>
       <div class="facts">
-        <div><b>30代〜</b><span>本格的に格闘技を開始</span></div>
-        <div><b>約15年</b><span>格闘技歴</span></div>
+        <div><b>30代〜</b><span>本格的に打ち込み始める</span></div>
+        <div><b>約15年</b><span>格闘技歴（学生時代の柔道を含む）</span></div>
         <div><b>黒帯</b><span>柔術・柔道</span></div>
       </div>
       <p class="quote">まだまだ修行の身です。でも、30代から始めても、コツコツ続ければちゃんと強くなれる。それを一緒に体験してもらえたらうれしいです。</p>
       <ul class="creds">
         <li>ブラジリアン柔術 黒帯 ／ 柔道 黒帯</li>
-        <li>クロスポイント パラエストラ ハイジマにて柔術・グラップリングのインストラクターを担当</li>
+        <li>クロスポイント パラエストラ拝島にて柔術・グラップリングのインストラクターを担当</li>
         <li>JBJJF（日本ブラジリアン柔術連盟）主催大会で入賞経験あり</li>
         <li>本業は公認心理師。相手の得意・苦手を見て、伝え方を変えることが仕事です</li>
       </ul>
@@ -462,20 +466,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
   </div>
 </section>
 
-<!-- GALLERY -->
-<section id="community" class="band">
-  <div class="wrap">
+<!-- COMMUNITY -->
+<section id="community" class="community">
+  <div class="community-bg" aria-hidden="true"></div>
+  <div class="wrap community-inner">
     <div class="sec-head">
       <span class="eyebrow">Community</span>
       <h2>練習のあとは、みんな笑顔</h2>
-      <p>代表がこれまで一緒に練習し、指導してきた仲間たちとの写真です。ミニマム柔術クラブでも、こんな雰囲気を目指します。</p>
+      <p>強い人も、はじめたばかりの人も、練習が終われば同じ仲間です。代表がこれまで一緒に汗を流してきた道場のように、ミニマム柔術クラブも、帰り道に「楽しかったな」と思える場所にします。</p>
     </div>
     <div class="gallery">
-      <figure class="g-wide"><img src="img/group-gi.webp" alt="道衣姿の練習仲間たちとの集合写真" width="1477" height="1108"><figcaption>柔術クラスのあとに</figcaption></figure>
-      <figure class="g-wide"><img src="img/group-cage.webp" alt="ケージの中でポーズをとる練習仲間たちの集合写真" width="1477" height="1108"><figcaption>出稽古でもいつもこの調子</figcaption></figure>
-      <figure class="g-third"><img src="img/nogi-crew.webp" alt="ノーギ練習後の5人の集合写真" width="1500" height="1125"><figcaption>グラップリングの日</figcaption></figure>
-      <figure class="g-third"><img src="img/podium-2023.webp" alt="East Jiu-Jitsu Open 2023の表彰台、1位の位置に立つ代表" width="1400" height="1050"><figcaption>East Jiu-Jitsu Open 2023</figcaption></figure>
-      <figure class="g-third"><img src="img/nogi-gold.webp" alt="ノーギ大会でメダルを2つ持つ代表" width="1400" height="1050"><figcaption>試合に出たい人は、もちろん応援します</figcaption></figure>
+      <figure><img src="img/podium-2023.webp" alt="East Jiu-Jitsu Open 2023で金メダルを下げる代表" width="600" height="800"><figcaption>East Jiu-Jitsu Open 2023</figcaption></figure>
+      <figure><img src="img/nogi-gold.webp" alt="ノーギの大会でメダルを2つ持つ代表" width="600" height="800"><figcaption>ノーギ（道衣なし）の大会にて</figcaption></figure>
+      <div class="gallery-note">
+        <p class="quote">試合に出てみたい人は、もちろん応援します。</p>
+        <p>出ない人も、出る人も、同じマットで。勝ち負けより、続けられることを大事にします。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -527,7 +533,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
       <h2>よくある質問</h2>
     </div>
     <div class="faq">
-      <details><summary>運動がまったくの未経験でも大丈夫ですか？</summary><p>大丈夫です。代表自身も30歳を過ぎてから始めました。最初は準備運動と基本動作だけでも十分です。</p></details>
+      <details><summary>運動がまったくの未経験でも大丈夫ですか？</summary><p>大丈夫です。代表自身も、本格的に始めたのは30歳を過ぎてからでした。最初は準備運動と基本動作だけでも十分です。</p></details>
       <details><summary>40代・50代からでも始められますか？</summary><p>始められます。柔術は殴る・蹴るがなく、体の大きさや力よりも、体の使い方が大事な競技です。強度はその人に合わせて調整します。</p></details>
       <details><summary>試合に出ないといけませんか？</summary><p>出なくてかまいません。この道場は試合のための道場ではありません。出てみたい人がいれば、もちろん応援します。</p></details>
       <details><summary>ケガが心配です。</summary><p>スパーリングは自由参加で、危険度の高い技は段階的に扱います。不安な部位がある方は、最初に教えてください。</p></details>
